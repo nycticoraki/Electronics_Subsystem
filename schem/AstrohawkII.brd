@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="8.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -151,7 +151,8 @@
 <wire x1="64" y1="0" x2="64" y2="56" width="0" layer="20"/>
 <wire x1="64" y1="56" x2="0" y2="56" width="0" layer="20"/>
 <wire x1="0" y1="56" x2="0" y2="0" width="0" layer="20"/>
-<dimension x1="3" y1="53" x2="61" y2="53" x3="32" y3="53" textsize="1.778" layer="1"/>
+<dimension x1="3" y1="52" x2="61" y2="52" x3="32" y3="66" textsize="1.778" layer="51"/>
+<dimension x1="3" y1="3.5" x2="3" y2="52.5" x3="-12" y3="28" textsize="1.778" layer="51"/>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">
@@ -667,14 +668,10 @@ design rules under a new name.</description>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
+<param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="1"/>
-<param name="checkStop" value="0"/>
-<param name="checkValues" value="0"/>
-<param name="checkNames" value="1"/>
-<param name="checkWireStubs" value="1"/>
-<param name="checkPolygonWidth" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
@@ -784,10 +781,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="41.15" y="28.547" size="0.6096" layer="25" font="vector" ratio="20"/>
 <attribute name="VALUE" x="40.15" y="24.118" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
-<element name="U$1" library="rocketry" package="BNO055" value="BNO055" x="9.7" y="23.53" smashed="yes">
-<attribute name="NAME" x="12.24" y="36.23" size="1.778" layer="25"/>
-<attribute name="VALUE" x="12.24" y="29.88" size="1.778" layer="27"/>
-</element>
+<element name="U$1" library="rocketry" package="BNO055" value="BNO055" x="8" y="25"/>
 </elements>
 <signals>
 <signal name="3.3V">
@@ -799,8 +793,10 @@ design rules under a new name.</description>
 <contactref element="J2" pad="1"/>
 <contactref element="J1" pad="2"/>
 <contactref element="J1" pad="4"/>
-<wire x1="58" y1="7.46" x2="41.42" y2="26.15" width="0" layer="19" extent="1-1"/>
-<wire x1="55.46" y1="7.46" x2="58" y2="7.46" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="VIN"/>
+<wire x1="55.46" y1="7.46" x2="41.42" y2="26.15" width="0" layer="19" extent="1-1"/>
+<wire x1="58" y1="7.46" x2="55.46" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="14.985" y1="26.27" x2="41.42" y2="26.15" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="J2" pad="2"/>
@@ -812,14 +808,16 @@ design rules under a new name.</description>
 <contactref element="J1" pad="30"/>
 <contactref element="J1" pad="34"/>
 <contactref element="J1" pad="39"/>
-<wire x1="17.36" y1="7.46" x2="9.74" y2="10" width="0" layer="19" extent="1-1"/>
-<wire x1="22.44" y1="7.46" x2="17.36" y2="7.46" width="0" layer="19" extent="1-1"/>
-<wire x1="27.52" y1="10" x2="22.44" y2="7.46" width="0" layer="19" extent="1-1"/>
-<wire x1="35.14" y1="7.46" x2="27.52" y2="10" width="0" layer="19" extent="1-1"/>
-<wire x1="42.76" y1="7.46" x2="35.14" y2="7.46" width="0" layer="19" extent="1-1"/>
-<wire x1="47.84" y1="10" x2="42.76" y2="7.46" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="GND"/>
+<wire x1="47.84" y1="10" x2="43.96" y2="26.15" width="0" layer="19" extent="1-1"/>
 <wire x1="52.92" y1="7.46" x2="47.84" y2="10" width="0" layer="19" extent="1-1"/>
-<wire x1="43.96" y1="26.15" x2="52.92" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="42.76" y1="7.46" x2="47.84" y2="10" width="0" layer="19" extent="1-1"/>
+<wire x1="35.14" y1="7.46" x2="42.76" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="27.52" y1="10" x2="35.14" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="22.44" y1="7.46" x2="27.52" y2="10" width="0" layer="19" extent="1-1"/>
+<wire x1="17.36" y1="7.46" x2="22.44" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="9.74" y1="10" x2="17.36" y2="7.46" width="0" layer="19" extent="1-1"/>
+<wire x1="20.065" y1="26.27" x2="9.74" y2="10" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="INT2">
 <contactref element="J2" pad="4"/>
@@ -834,39 +832,49 @@ design rules under a new name.</description>
 <signal name="SCL">
 <contactref element="J2" pad="6"/>
 <contactref element="J1" pad="5"/>
+<contactref element="U$1" pad="SCL"/>
 <wire x1="52.92" y1="10" x2="54.12" y2="26.15" width="0" layer="19" extent="1-1"/>
+<wire x1="25.145" y1="26.27" x2="52.92" y2="10" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SDA">
 <contactref element="J2" pad="7"/>
 <contactref element="J1" pad="3"/>
+<contactref element="U$1" pad="SDA"/>
 <wire x1="55.46" y1="10" x2="56.66" y2="26.15" width="0" layer="19" extent="1-1"/>
+<wire x1="22.605" y1="26.27" x2="55.46" y2="10" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="INT">
 <contactref element="J1" pad="29"/>
+<contactref element="U$1" pad="INT"/>
+<wire x1="22.605" y1="44.05" x2="22.44" y2="10" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RST">
 <contactref element="J1" pad="31"/>
+<contactref element="U$1" pad="RST"/>
+<wire x1="27.685" y1="26.27" x2="19.9" y2="10" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
-<via x="3.5" y="52.5" extent="1-16" drill="2.75" diameter="6"/>
+<via x="3" y="52.5" extent="1-16" drill="2.75" diameter="6"/>
 </signal>
 <signal name="N$2">
-<via x="3.5" y="3.5" extent="1-16" drill="2.75" diameter="6"/>
+<via x="3" y="3.5" extent="1-16" drill="2.75" diameter="6"/>
 </signal>
 <signal name="N$3">
-<via x="60.5" y="3.5" extent="1-16" drill="2.75" diameter="6"/>
+<via x="61" y="3.5" extent="1-16" drill="2.75" diameter="6"/>
 </signal>
 <signal name="N$4">
-<via x="60.5" y="52.5" extent="1-16" drill="2.75" diameter="6"/>
+<via x="61" y="52.5" extent="1-16" drill="2.75" diameter="6"/>
+</signal>
+<signal name="PS0">
+<contactref element="U$1" pad="PS0"/>
+</signal>
+<signal name="PS1">
+<contactref element="U$1" pad="PS1"/>
+</signal>
+<signal name="ADR">
+<contactref element="U$1" pad="ADR"/>
 </signal>
 </signals>
-<mfgpreviewcolors>
-<mfgpreviewcolor name="soldermaskcolor" color="0xC8008000"/>
-<mfgpreviewcolor name="silkscreencolor" color="0xFFFEFEFE"/>
-<mfgpreviewcolor name="backgroundcolor" color="0xFF282828"/>
-<mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
-<mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
-</mfgpreviewcolors>
 </board>
 </drawing>
 </eagle>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="8.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3708,16 +3708,16 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <wire x1="15.24" y1="20.32" x2="15.24" y2="-12.7" width="0.0254" layer="94"/>
 <wire x1="15.24" y1="-12.7" x2="-10.16" y2="-12.7" width="0.0254" layer="94"/>
 <wire x1="-10.16" y1="-12.7" x2="-10.16" y2="20.32" width="0.0254" layer="94"/>
-<pin name="PS0" x="15.24" y="12.7" length="middle"/>
-<pin name="PS1" x="15.24" y="7.62" length="middle"/>
-<pin name="INT" x="15.24" y="2.54" length="middle"/>
-<pin name="ADR" x="15.24" y="-2.54" length="middle"/>
-<pin name="VIN" x="-10.16" y="15.24" length="middle" rot="R180"/>
-<pin name="3VO" x="-10.16" y="10.16" length="middle" rot="R180"/>
-<pin name="GND" x="-10.16" y="5.08" length="middle" rot="R180"/>
-<pin name="SDA" x="-10.16" y="0" length="middle" rot="R180"/>
-<pin name="SCL" x="-10.16" y="-5.08" length="middle" rot="R180"/>
-<pin name="RST" x="-10.16" y="-10.16" length="middle" rot="R180"/>
+<pin name="PS0" x="20.32" y="12.7" length="middle" rot="R180"/>
+<pin name="PS1" x="20.32" y="7.62" length="middle" rot="R180"/>
+<pin name="INT" x="20.32" y="2.54" length="middle" rot="R180"/>
+<pin name="ADR" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="VIN" x="-15.24" y="15.24" length="middle"/>
+<pin name="3VO" x="-15.24" y="10.16" length="middle"/>
+<pin name="GND" x="-15.24" y="5.08" length="middle"/>
+<pin name="SDA" x="-15.24" y="0" length="middle"/>
+<pin name="SCL" x="-15.24" y="-5.08" length="middle"/>
+<pin name="RST" x="-15.24" y="-10.16" length="middle"/>
 <text x="-2.54" y="22.86" size="1.778" layer="95">&gt;Name</text>
 <text x="-2.54" y="-17.78" size="1.778" layer="96">&gt;Value</text>
 </symbol>
@@ -3779,10 +3779,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <attribute name="NAME" x="73.66" y="102.108" size="1.778" layer="95" font="vector"/>
 <attribute name="MPL3115A2" x="73.66" y="78.74" size="1.778" layer="96" display="name"/>
 </instance>
-<instance part="U$1" gate="G$1" x="116.84" y="35.56" smashed="yes">
-<attribute name="NAME" x="114.3" y="58.42" size="1.778" layer="95"/>
-<attribute name="VALUE" x="114.3" y="17.78" size="1.778" layer="96"/>
-</instance>
+<instance part="U$1" gate="G$1" x="116.84" y="35.56"/>
 </instances>
 <busses>
 </busses>
@@ -3790,19 +3787,22 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <net name="PS0" class="0">
 <segment>
 <wire x1="137.16" y1="48.26" x2="144.78" y2="48.26" width="0.1524" layer="91"/>
-<label x="149.86" y="48.26" size="1.778" layer="95" align="bottom-right"/>
+<label x="149.86" y="48.26" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="PS0"/>
 </segment>
 </net>
 <net name="PS1" class="0">
 <segment>
 <wire x1="137.16" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
-<label x="149.86" y="43.18" size="1.778" layer="95" align="bottom-right"/>
+<label x="149.86" y="43.18" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="PS1"/>
 </segment>
 </net>
 <net name="INT" class="0">
 <segment>
 <wire x1="137.16" y1="38.1" x2="144.78" y2="38.1" width="0.1524" layer="91"/>
-<label x="149.86" y="38.1" size="1.778" layer="95" align="bottom-right"/>
+<label x="149.86" y="38.1" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="INT"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GP5"/>
@@ -3813,18 +3813,20 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <net name="ADR" class="0">
 <segment>
 <wire x1="137.16" y1="33.02" x2="144.78" y2="33.02" width="0.1524" layer="91"/>
-<label x="144.78" y="33.02" size="1.778" layer="95" rot="MR0" align="bottom-right"/>
+<label x="154.94" y="33.02" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U$1" gate="G$1" pin="ADR"/>
 </segment>
 </net>
 <net name="VIN" class="0">
 <segment>
 <pinref part="J2" gate="J1" pin="1"/>
 <wire x1="83.82" y1="83.82" x2="91.44" y2="83.82" width="0.1524" layer="91"/>
-<label x="88.9" y="83.82" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="50.8" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
-<label x="93.98" y="50.8" size="1.778" layer="95" align="bottom-right"/>
+<label x="93.98" y="50.8" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="VIN"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="5V"/>
@@ -3836,11 +3838,12 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <segment>
 <pinref part="J2" gate="J1" pin="2"/>
 <wire x1="83.82" y1="86.36" x2="91.44" y2="86.36" width="0.1524" layer="91"/>
-<label x="88.9" y="86.36" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="40.64" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
-<label x="93.98" y="40.64" size="1.778" layer="95" align="bottom-right"/>
+<label x="93.98" y="40.64" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GND"/>
@@ -3852,7 +3855,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <segment>
 <pinref part="J2" gate="J1" pin="4"/>
 <wire x1="83.82" y1="91.44" x2="91.44" y2="91.44" width="0.1524" layer="91"/>
-<label x="88.9" y="91.44" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GP13"/>
@@ -3864,7 +3867,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <segment>
 <pinref part="J2" gate="J1" pin="5"/>
 <wire x1="83.82" y1="93.98" x2="91.44" y2="93.98" width="0.1524" layer="91"/>
-<label x="88.9" y="93.98" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="93.98" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GP12"/>
@@ -3876,38 +3879,41 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <segment>
 <pinref part="J2" gate="J1" pin="6"/>
 <wire x1="83.82" y1="96.52" x2="91.44" y2="96.52" width="0.1524" layer="91"/>
-<label x="88.9" y="96.52" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="30.48" x2="101.6" y2="30.48" width="0.1524" layer="91"/>
-<label x="93.98" y="30.48" size="1.778" layer="95" align="bottom-right"/>
+<label x="93.98" y="30.48" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="SCL"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="SCL"/>
 <wire x1="40.64" y1="96.52" x2="55.88" y2="96.52" width="0.1524" layer="91"/>
-<label x="53.34" y="96.52" size="1.778" layer="95" align="bottom-right"/>
+<label x="53.34" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
 <pinref part="J2" gate="J1" pin="7"/>
 <wire x1="83.82" y1="99.06" x2="91.44" y2="99.06" width="0.1524" layer="91"/>
-<label x="88.9" y="99.06" size="1.778" layer="95" align="bottom-right"/>
+<label x="88.9" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="93.98" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
-<label x="93.98" y="35.56" size="1.778" layer="95" align="bottom-right"/>
+<label x="93.98" y="35.56" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="SDA"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="SDA"/>
 <wire x1="40.64" y1="99.06" x2="55.88" y2="99.06" width="0.1524" layer="91"/>
-<label x="53.34" y="99.06" size="1.778" layer="95" align="bottom-right"/>
+<label x="53.34" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RST" class="0">
 <segment>
 <wire x1="93.98" y1="25.4" x2="101.6" y2="25.4" width="0.1524" layer="91"/>
-<label x="93.98" y="25.4" size="1.778" layer="95" align="bottom-right"/>
+<label x="93.98" y="25.4" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="RST"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GP6"/>
@@ -3920,11 +3926,4 @@ This footprint was designed to help hold the alignment of a through-hole compone
 </sheets>
 </schematic>
 </drawing>
-<compatibility>
-<note version="9.0" severity="warning">
-Since Version 9.0, EAGLE supports the align property for labels. 
-Labels in schematic will not be understood with this version. Update EAGLE to the latest version 
-for full support of labels. 
-</note>
-</compatibility>
 </eagle>
