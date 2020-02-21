@@ -3784,20 +3784,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <busses>
 </busses>
 <nets>
-<net name="PS0" class="0">
-<segment>
-<wire x1="137.16" y1="48.26" x2="144.78" y2="48.26" width="0.1524" layer="91"/>
-<label x="149.86" y="48.26" size="1.778" layer="95"/>
-<pinref part="U$1" gate="G$1" pin="PS0"/>
-</segment>
-</net>
-<net name="PS1" class="0">
-<segment>
-<wire x1="137.16" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
-<label x="149.86" y="43.18" size="1.778" layer="95"/>
-<pinref part="U$1" gate="G$1" pin="PS1"/>
-</segment>
-</net>
 <net name="INT" class="0">
 <segment>
 <wire x1="137.16" y1="38.1" x2="144.78" y2="38.1" width="0.1524" layer="91"/>
@@ -3808,13 +3794,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <pinref part="J1" gate="G$1" pin="GP5"/>
 <wire x1="10.16" y1="86.36" x2="2.54" y2="86.36" width="0.1524" layer="91"/>
 <label x="0" y="86.36" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="ADR" class="0">
-<segment>
-<wire x1="137.16" y1="33.02" x2="144.78" y2="33.02" width="0.1524" layer="91"/>
-<label x="154.94" y="33.02" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U$1" gate="G$1" pin="ADR"/>
 </segment>
 </net>
 <net name="VIN" class="0">
@@ -3924,6 +3903,13 @@ This footprint was designed to help hold the alignment of a through-hole compone
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="204,1,10.16,96.52,J1,3.3V,,,,"/>
+<approved hash="202,1,40.64,81.28,J1,MISO,,,,"/>
+<approved hash="202,1,40.64,88.9,J1,RXI,,,,"/>
+<approved hash="104,1,10.16,99.06,J1,5V,VIN,,,"/>
+<approved hash="113,1,80.6222,91.313,J2,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
