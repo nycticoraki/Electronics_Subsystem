@@ -269,7 +269,7 @@ UsedLibrary="lib/rocketry.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="710 404 1909 1003"
+Loc="0 31 1919 1175"
 State=2
 Number=0
 
