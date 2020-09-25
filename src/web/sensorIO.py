@@ -1,6 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
+class ActuallyWhat():
+    def __init__(self, val):
+        self.val = val
+        
 
 
 class RangeSensor():
@@ -8,6 +12,7 @@ class RangeSensor():
         GPIO.setmode(GPIO.BCM)
         self.TRIG = TRIG
         self.ECHO = ECHO
+        self.init_time = time.time()
         GPIO.setup(TRIG, GPIO.OUT)
         GPIO.setup(ECHO, GPIO.IN)
         GPIO.output(TRIG, False)
@@ -31,6 +36,10 @@ class RangeSensor():
         pulse_duration = pulse_end - pulse_start
         pulse_duration = pulse_duration * 17150
         pulse_duration = round(pulse_duration, 2)
-
+        if pulse_duration > 200:
+            pulse_duration = 0
         return pulse_duration
+
+    def getTime(self):
+        return time.time() - self.init_time
 
