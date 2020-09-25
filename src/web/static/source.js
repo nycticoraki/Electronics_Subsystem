@@ -20,6 +20,7 @@ class DataBundle {
 
 window.onload = () => {
     data_vis = document.getElementById('data');
+    //let cnt = 0;
     layout = {
         title: 'test'
     };
@@ -39,7 +40,7 @@ window.onload = () => {
     if(ID == null)
         console.log("An Error Has Occurred While Getting an ID...");
 
-    setInterval(()=> {
+    var interval = setInterval(()=> {
         requestSensorData();
         updateGraph();
     }, 1000/callsPerSecond);
@@ -83,6 +84,13 @@ async function pollForDistance() {
 
 function updateGraph() {
     var update = {x: [[data_x]], y: [[data_y]]}
+    var slidingWindow = {
+        xaxis: {
+            type: 'number',
+            range: [data_x - 10, data_x + 5]
+        }
+    };
+    Plotly.relayout(data_vis, slidingWindow);
     Plotly.extendTraces(data_vis, update, [0]);
 }
 
