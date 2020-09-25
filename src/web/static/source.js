@@ -1,5 +1,5 @@
 const timeout = 1; // 1 ms
-const callsPerSecond = 50;
+const callsPerSecond = 100;
 const url_getDistance = "http://192.168.1.176:5000/getDistance";
 const url_getID = "http://192.168.1.176:5000/getID";
 var data_vis;
@@ -22,7 +22,7 @@ window.onload = () => {
     data_vis = document.getElementById('data');
     //let cnt = 0;
     layout = {
-        title: 'test'
+        title: 'Range Finder Time versus Distance'
     };
     data_x = 0
     data_y = 0
