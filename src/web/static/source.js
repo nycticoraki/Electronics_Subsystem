@@ -1,5 +1,5 @@
 const timeout = 1; // 1 ms
-const callsPerSecond = 100;
+const callsPerSecond = 60;
 const url_getDistance = "http://192.168.1.176:5000/getDistance";
 const url_getID = "http://192.168.1.176:5000/getID";
 var data_vis;
@@ -10,6 +10,8 @@ var plotData;
 var data_x;
 var data_y;
 var layout;
+var last_data_x;
+var last_data_y;
 
 class DataBundle {
     constructor(time, distance) {
@@ -26,6 +28,8 @@ window.onload = () => {
     };
     data_x = 0
     data_y = 0
+    last_data_x = 0;
+    last_data_y = 0;
     plotData = [{
         x: [],
         y: [],
@@ -83,7 +87,9 @@ async function pollForDistance() {
 }
 
 function updateGraph() {
-    var update = {x: [[data_x]], y: [[data_y]]}
+    var update = {x: [[data_x]], y: [[(data_y - last_data_y) / (data_x - last_data_x)]]}
+    last_data_x = data_x;
+    last_data_y = data_y;
     var slidingWindow = {
         xaxis: {
             type: 'number',
@@ -95,19 +101,4 @@ function updateGraph() {
 }
 
 
-/*
-async function pollForDistance() {
-    let json = pollData();   
-    json.then((data) => {
-        data_vis.innerHTML = data.distance;
-    })
-    .catch(err => {
-        console.log(`Error: ${err}`);
-    });
-}
-
-async function pollData() {
-    let obj = await fetch(url);
-    return obj.json();
-}
-*/
+ 
