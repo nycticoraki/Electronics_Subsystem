@@ -13,6 +13,8 @@ sensor = RangeSensor(23, 24)
 
 start_time = time.time()
 
+delay = 1.0/60.0
+
 with app.test_request_context():
     url_for('static', filename='main.css')
     url_for('static', filename='source.js')
@@ -21,9 +23,10 @@ with app.test_request_context():
 
 def feed_data():
     while True:
-        data = {"time": time.time() - start_time, "sensor": 1}
+        data = {"time": time.time() - start_time, "data": sensor.getDistance()}
         send(data, broadcast=True)
-        socketio.sleep(1.0/50.0)
+        socketio.sleep(delay)
+        time.sleep(delay)
 
 # deal with standard http requests
 @app.route('/')
@@ -38,8 +41,7 @@ def handleConnect():
 
 @socketio.on('message')
 def handleMessage(msg):
-    if msg == 'feed me!':
-        start_time = time.time()
+    if msg == 'feed me!':       # whenever a new user joins, broadcast data to them :: replace with namespaces later
         feed_data()
 
 
