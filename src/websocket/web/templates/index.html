@@ -8,7 +8,12 @@
 </head>
 <body>
     <h1>Testing Range Finder: </h1>
-    <button onclick="pollForDistance()">update</button>
+    <label for="sensors">Choose a sensor: </label>
+    <select name="sensors" id="selector">
+        <option value="RangeFinder">Range Finder</option>
+    </select>
+    <button onclick="connect()">connect</button>
+    <button onclick="disconnect()">disconnect</button>
     <div class="data" id="data"></div>
     <script src="socket.io.js"></script>
     <script src="plotly-latest.min.js"></script>
