@@ -1,7 +1,7 @@
 const timeout = 1; // 1 ms
-const callsPerSecond = 60;
-const url_getDistance = "http://192.168.1.176:5000/getDistance";
-const url_getID = "http://192.168.1.176:5000/getID";
+const callsPerSecond = 100;
+const url_getDistance = document.location.origin + "/getDistance";
+const url_getID = document.location.origin + "/getID";
 var data_vis;
 var obj_data;
 var ID = null;
@@ -100,5 +100,3 @@ function updateGraph() {
     Plotly.extendTraces(data_vis, update, [0]);
 }
 
-
- 
