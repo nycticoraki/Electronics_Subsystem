@@ -1,6 +1,6 @@
 const timeout = 1; // 1 ms
 const callsPerSecond = 60;
-const url = 'http://192.168.1.176:5000'
+const url = document.location.origin
 const data_div = document.getElementById('data');;
 const selector_div = document.getElementById('selector');;
 let data_x = 0
