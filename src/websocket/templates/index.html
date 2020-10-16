@@ -7,7 +7,7 @@
     <title>Rocketry Club Data Visualizer</title>
 </head>
 <body>
-    <h1>Testing Range Finder: </h1>
+    <h1>Testing Sensors: </h1>
     <label for="sensors">Choose a sensor: </label>
     <select name="sensors" id="selector">
         <option value="imusensor">imu</option>
@@ -15,6 +15,14 @@
     </select>
     <button onclick="connect()">connect</button>
     <button onclick="disconnect()">disconnect</button>
+    
+    <label for="sensors">Choose a test: </label>
+    <select name="tests" id="test_selector">
+        <!--Populate depending on what sensor is being used-->
+    </select>
+    <button onclick="connect()">connect</button>
+    <button onclick="disconnect()">disconnect</button>
+
     <div class="data" id="data"></div>
     <script src="socket.io.js"></script>
     <script src="plotly-latest.min.js"></script>
