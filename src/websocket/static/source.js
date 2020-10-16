@@ -3,6 +3,7 @@ const callsPerSecond = 60;
 const url = document.location.origin
 const data_div = document.getElementById('data');;
 const selector_div = document.getElementById('selector');;
+let selection = null;
 let data_x = 0
 let data_y = 0
 let last_data_x = 0;
@@ -77,7 +78,10 @@ function connect() {
         console.log(msg);
         // update graph 
         data_x = msg.time;
-        data_y = msg.data;
+        if(selection == "imusensor")
+            data_y = msg.data.Temperature;
+        else if(selection == "altsensor")
+            data_y = msg.data.Altitude
 
         data_buffer_x.push(data_x);
         data_buffer_y.push(data_y);
