@@ -10,7 +10,7 @@ let last_data_x = 0;
 let last_data_y = 0;
 let data_buffer_x = [];
 let data_buffer_y = [];
-var socket;
+var socket = null;
 
 
 window.onload = () => {
