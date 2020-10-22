@@ -4,7 +4,7 @@ import board
 import busio
 import adafruit_bno055
 i2c = busio.I2C(board.SCL, board.SDA)
-sensor = adafruit_bno055.BNO055(i2c)
+sensor = adafruit_bno055.BNO055_I2C(i2c)
 print('Temperature: {} degrees C'.format(sensor.temperature))
 print('Accelerometer: (m/s^2): {}'.format(sensor.acceleration))
 print('Magnetometer (microteslas): {}'.format(sensor.magnetic))
