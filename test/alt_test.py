@@ -11,5 +11,12 @@ print('Altitude: {0:0.3f} meters'.format(sensor.altitude))
 print('Temperature: {0:0.3f} degrees Celsius'.format(sensor.temperature))
 
 
+for i in range(0, 1000):
+    print('Pressure: {0:0.3f} pascals'.format(sensor.pressure))
+    print('Altitude: {0:0.3f} meters'.format(sensor.altitude))
+    print('Temperature: {0:0.3f} degrees Celsius'.format(sensor.temperature))
+    
+
+
 
 
