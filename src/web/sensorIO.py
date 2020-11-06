@@ -1,18 +1,23 @@
 import RPi.GPIO as GPIO
 import time
+import random
 
 class ActuallyWhat():
     def __init__(self, val):
         self.val = val
         
+class BaseSensor():
+    def __init__(self):
+        self.init_time = time.time()
+    def getTime(self):
+        return time.time() - self.init_time
 
-
-class RangeSensor():
+class RangeSensor(BaseSensor):
     def __init__(self, TRIG, ECHO):
+        super().__init__()
         GPIO.setmode(GPIO.BCM)
         self.TRIG = TRIG
         self.ECHO = ECHO
-        self.init_time = time.time()
         GPIO.setup(TRIG, GPIO.OUT)
         GPIO.setup(ECHO, GPIO.IN)
         GPIO.output(TRIG, False)
@@ -40,6 +45,8 @@ class RangeSensor():
             pulse_duration = 0
         return pulse_duration
 
-    def getTime(self):
-        return time.time() - self.init_time
-
+class DummySensor(BaseSensor):
+    def __init__(self, TRIG, ECHO):
+        super().__init__()
+    def getDistance(self):
+        return random.randint(0,100)
