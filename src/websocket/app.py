@@ -52,13 +52,13 @@ def background_feed_data():
         if len(subscription_list['altsensor']) != 0:
             data["data"] = sensors.getAltData()
             send(data, namespace='/altsensor', broadcast=True)
-
+        socketio.sleep(delay / 2)
         if len(subscription_list['imusensor']) != 0:
-            data["data"] = sensors.getImuData()     # I have a feeling this is gonna worsen the issues with timing issues
+            data["data"] = sensors.getImuData()
             send(data, namespace='/imusensor', broadcast=True)
         
         # please use a reasonable delay
-        socketio.sleep(delay)
+        socketio.sleep(delay / 2)
         
 
 def subscribe(sensor_name, sid):
@@ -109,9 +109,9 @@ def handleUnsubscribe(msg):
 def disconnect():
     unsubscribe('imusensor', request.sid)
 
-@socketio.on('disconnect', namespace='/imusensor')
+@socketio.on('disconnect', namespace='/altsensor')
 def disconnect():
-    unsubscribe('imusensor', request.sid)
+    unsubscribe('altsensor', request.sid)
 
 
 

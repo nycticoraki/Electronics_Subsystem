@@ -1,11 +1,27 @@
 const timeout = 1; // 1 ms
 const callsPerSecond = 60;
-const url = document.location.origin
-const data_div = document.getElementById('data');;
-const selector_div = document.getElementById('selector');;
+const url = document.location.origin;
+const data_div = document.getElementById('data');
+const selector_div = document.getElementById('selector');
+const test_selector_div = document.getElementById('test_selector');
+const imutests = [
+    'Temperature',
+    'Accelerometer',
+    'Magnetometer',
+    'Gyroscope',
+    'EulerAngle',
+    'Quaternion',
+    'LinearAcceleration',
+    'Gravity'            
+];
+const alttests = [
+    'Pressure',
+    'Altitude',
+    'Temperature'
+]
 let selection = null;
-let data_x = 0
-let data_y = 0
+let data_x = 0;
+let data_y = 0;
 let last_data_x = 0;
 let last_data_y = 0;
 let data_buffer_x = [];
@@ -27,7 +43,8 @@ window.onload = () => {
     }];
     Plotly.newPlot(data_div, plotData, layout);
 
-    
+    // set up tests for default selection
+    populateTests();
 
     
 
@@ -60,6 +77,7 @@ function disconnect() {
 function connect() {
     // see what sensor client is requesting
     var selection = selector_div.options[selector_div.selectedIndex].value;
+    var test = test_selector_div.options[test_selector_div.selectedIndex].value;
     disconnect();
     socket = io(url + `/${selection}`);
     socket.send('subscribe');   // we will subscribe to this sensor
@@ -75,6 +93,7 @@ function connect() {
 
     // send message
     socket.on('message', (msg)=> {
+        var test = test_selector_div.options[test_selector_div.selectedIndex].value;
         console.log(msg);
         // update graph 
         data_x = msg.time;
@@ -105,4 +124,31 @@ function updateGraph() {
     Plotly.extendTraces(data_div, update, [0]);
     while(data_buffer_x.pop());
     while(data_buffer_y.pop());
+}
+
+function populateTests() {
+    var selection = selector_div.options[selector_div.selectedIndex].value;
+    while(test_selector_div.firstChild) {
+        test_selector_div.removeChild(test_selector_div.firstChild);
+    }
+    if (selection == "imusensor") {
+        imutests.forEach((e)=> {
+            let element = document.createElement("option");
+            element.text = e;
+            element.value = e;
+            test_selector_div.appendChild(element);
+        });
+    }
+    else if (selection == "altsensor") {
+        alttests.forEach((e)=> {
+            let element = document.createElement("option");
+            element.text = e;
+            element.value = e;
+            test_selector_div.appendChild(element);
+        });
+    }
+}
+
+function changeTest() {
+    var test = test_selector_div.options[test_selector_div.selectedIndex].value;
 }

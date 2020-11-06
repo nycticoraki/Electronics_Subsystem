@@ -9,15 +9,18 @@
 <body>
     <h1>Testing Sensors: </h1>
     <label for="sensors">Choose a sensor: </label>
-    <select name="sensors" id="selector">
+    <select name="sensors" id="selector" onchange="populateTests()">
         <option value="imusensor">imu</option>
         <option value="altsensor">altimeter</option>
     </select>
-    <button onclick="connect()">connect</button>
-    <button onclick="disconnect()">disconnect</button>
     
     <label for="sensors">Choose a test: </label>
-    <select name="tests" id="test_selector">
+    <select name="tests" id="test_selector" onchange="changeTest()">
+        <!--Populate depending on what sensor is being used-->
+    </select>
+
+    <label for="sensors">Choose a graph: </label>
+    <select name="graphs" id="graph_selector" onchange="changeGraph()">
         <!--Populate depending on what sensor is being used-->
     </select>
     <button onclick="connect()">connect</button>
